@@ -1,0 +1,250 @@
+.record-page {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(201, 168, 76, 0.1), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(201, 168, 76, 0.09), transparent 38%),
+    #0d1526;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 44px 20px;
+}
+
+.record-panel {
+  width: min(1100px, 100%);
+  max-width: 100%;
+  background: rgba(17, 27, 48, 0.86);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+  padding: 28px;
+  overflow-x: hidden;
+}
+
+.record-panel--center {
+  max-width: 700px;
+  text-align: center;
+}
+
+.record-head h1 {
+  margin: 0;
+  color: #f0d080;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.record-head p {
+  margin: 10px 0 22px;
+  color: rgba(233, 233, 19, 0.75);
+}
+
+.record-search-wrap {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.record-search-input {
+  flex: 1;
+  background: rgba(13, 21, 38, 0.75);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 12px;
+  color: #f5f5f0;
+  padding: 12px 14px;
+}
+
+.record-search-input:focus {
+  border-color: rgba(201, 168, 76, 0.7);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.13);
+}
+
+.record-action-btn,
+.record-open-btn {
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c9a84c, #f0d080);
+  color: #0d1526;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.record-action-btn:hover,
+.record-open-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(201, 168, 76, 0.25);
+}
+
+.record-open-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.record-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.record-delete-btn {
+  border: 1px solid rgba(255, 100, 100, 0.35);
+  border-radius: 12px;
+  background: rgba(214, 75, 75, 0.12);
+  color: #ff8f8f;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.record-delete-btn:hover {
+  background: rgba(214, 75, 75, 0.28);
+  border-color: #ff6b6b;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(214, 75, 75, 0.2);
+}
+
+.record-error {
+  color: #ff8f8f;
+  margin: 10px 0;
+}
+
+.record-status {
+  color: rgba(245, 245, 240, 0.72);
+  margin: 16px 0;
+}
+
+.record-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.record-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(201, 168, 76, 0.16);
+  border-radius: 14px;
+  background: rgba(13, 21, 38, 0.68);
+  padding: 16px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.record-item:hover {
+  border-color: rgba(201, 168, 76, 0.45);
+  transform: translateY(-1px);
+}
+
+.record-item-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.record-item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.record-item-top h3 {
+  margin: 0;
+  color: #fff3cf;
+  font-size: 18px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.record-date {
+  color: rgba(245, 245, 240, 0.5);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.record-story-preview {
+  margin: 10px 0 12px;
+  color: rgba(245, 245, 240, 0.76);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.record-meta-row {
+  display: flex;
+  gap: 14px;
+  color: rgba(245, 245, 240, 0.58);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.record-file-names {
+  margin: 10px 0 0;
+  color: rgba(240, 208, 128, 0.9);
+  font-size: 13px;
+  line-height: 1.5;
+  min-width: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.record-file-names p {
+  margin: 0 0 6px;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.record-file-names p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .record-panel {
+    padding: 18px;
+  }
+
+  .record-head h1 {
+    font-size: 26px;
+  }
+
+  .record-search-wrap {
+    flex-direction: column;
+  }
+
+  .record-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .record-open-btn {
+    width: 100%;
+  }
+
+  .record-item-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .record-meta-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

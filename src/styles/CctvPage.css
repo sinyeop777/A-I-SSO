@@ -1,0 +1,322 @@
+/* ════════════════════════════════════════
+   CctvPage.css  —  AI 이의 있소!
+════════════════════════════════════════ */
+
+.cctv-page {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background-color: #0d1526;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  display: flex;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.cctv-content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── 제목 ── */
+.cctv-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #f0d080;
+  letter-spacing: -0.02em;
+  font-family: 'Pretendard', sans-serif;
+  animation: fadeUp 0.6s ease both;
+}
+
+.cctv-desc {
+  font-size: 14px;
+  color: rgba(245, 245, 240, 0.55);
+  font-family: 'Pretendard', sans-serif;
+  line-height: 1.7;
+  word-break: keep-all;
+  animation: fadeUp 0.6s ease 0.1s both;
+}
+
+/* ── 검색 영역 ── */
+.cctv-search-wrap {
+  display: flex;
+  gap: 10px;
+  animation: fadeUp 0.6s ease 0.2s both;
+}
+
+.cctv-input {
+  flex: 1;
+  padding: 14px 18px;
+  background: rgba(17, 27, 48, 0.8);
+  border: 1.5px solid rgba(201, 168, 76, 0.25);
+  border-radius: 12px;
+  color: #f5f5f0;
+  font-size: 15px;
+  font-family: 'Pretendard', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.cctv-input:focus {
+  border-color: rgba(201, 168, 76, 0.7);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+}
+
+.cctv-input::placeholder {
+  color: rgba(245, 245, 240, 0.3);
+}
+
+.cctv-search-btn {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #c9a84c, #f0d080);
+  border: none;
+  border-radius: 12px;
+  color: #0d1526;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.25);
+}
+
+.cctv-search-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(201, 168, 76, 0.4);
+}
+
+.cctv-search-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── 오류 메시지 ── */
+.cctv-error {
+  font-size: 13.5px;
+  color: #ef9a9a;
+  background: rgba(234, 67, 53, 0.1);
+  border: 1px solid rgba(234, 67, 53, 0.25);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* ── 결과 요약 ── */
+.cctv-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(201, 168, 76, 0.07);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 12px;
+  padding: 14px 18px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.summary-addr {
+  font-size: 14px;
+  color: rgba(245, 245, 240, 0.75);
+  font-family: 'Pretendard', sans-serif;
+}
+
+.summary-count {
+  font-size: 14px;
+  color: rgba(245, 245, 240, 0.65);
+  font-family: 'Pretendard', sans-serif;
+}
+
+.summary-count b {
+  color: #f0d080;
+  font-weight: 700;
+}
+
+/* ── 지도 ── */
+.cctv-map {
+  width: 100%;
+  height: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  transition: height 0.5s ease;
+}
+
+.cctv-map--show {
+  height: 480px;
+}
+
+.cctv-result-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr);
+  gap: 18px;
+  align-items: stretch;
+  animation: fadeUp 0.5s ease both;
+}
+
+.cctv-map-panel,
+.cctv-list-panel {
+  min-width: 0;
+}
+
+.cctv-list-panel {
+  background: rgba(17, 27, 48, 0.35);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 16px;
+  padding: 14px;
+  max-height: 480px;
+  overflow: auto;
+}
+
+/* 지도 위 InfoWindow 스타일 */
+.map-info {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #202124;
+  min-width: 160px;
+}
+
+/* ── CCTV 목록 ── */
+.cctv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cctv-list-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 4px;
+  font-family: 'Pretendard', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cctv-list-title::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: #c9a84c;
+  border-radius: 2px;
+}
+
+.cctv-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(17, 27, 48, 0.7);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 12px;
+  padding: 14px 18px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.cctv-item:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+.cctv-item--active {
+  border-color: rgba(201, 168, 76, 0.65);
+  background: rgba(201, 168, 76, 0.12);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.15) inset;
+}
+
+.cctv-item--overlap {
+  border-color: rgba(214, 75, 75, 0.55);
+  background: rgba(214, 75, 75, 0.08);
+}
+
+.cctv-item-num {
+  width: 28px;
+  height: 28px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c9a84c;
+  flex-shrink: 0;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.cctv-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cctv-item-addr {
+  font-size: 14px;
+  color: rgba(245, 245, 240, 0.85);
+  font-family: 'Pretendard', sans-serif;
+  word-break: keep-all;
+  line-height: 1.5;
+}
+
+.cctv-item-dist {
+  font-size: 12.5px;
+  color: rgba(201, 168, 76, 0.65);
+  font-family: 'Pretendard', sans-serif;
+}
+
+.cctv-overlap-badge {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #f08a8a;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* ── CCTV 없을 때 ── */
+.cctv-empty {
+  font-size: 14px;
+  color: rgba(245, 245, 240, 0.4);
+  text-align: center;
+  padding: 32px 0;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* ── 애니메이션 ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 반응형 ── */
+@media (max-width: 600px) {
+  .cctv-page    { padding: 32px 16px; }
+  .cctv-title   { font-size: 22px; }
+  .cctv-map--show { height: 320px; }
+  .cctv-search-wrap { flex-direction: column; }
+  .cctv-search-btn  { width: 100%; }
+  .cctv-result-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .cctv-list-panel {
+    max-height: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .cctv-result-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cctv-list-panel {
+    max-height: none;
+  }
+}

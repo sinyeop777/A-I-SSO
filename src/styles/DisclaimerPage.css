@@ -1,0 +1,153 @@
+/* DisclaimerPage.css - navy & gold theme */
+
+.disclaimer-page {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(201, 168, 76, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(201, 168, 76, 0.1), transparent 45%),
+    linear-gradient(180deg, #0b1630 0%, #091024 100%);
+}
+
+.disclaimer-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+.disclaimer-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.disclaimer-glow--top {
+  width: 340px;
+  height: 220px;
+  top: -70px;
+  left: 10%;
+  background: rgba(201, 168, 76, 0.16);
+}
+
+.disclaimer-glow--bottom {
+  width: 380px;
+  height: 250px;
+  bottom: -90px;
+  right: 6%;
+  background: rgba(240, 208, 128, 0.14);
+}
+
+.disclaimer-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 20px;
+  padding: 30px 28px;
+  background: rgba(10, 21, 43, 0.8);
+  box-shadow:
+    0 20px 60px rgba(5, 10, 20, 0.55),
+    inset 0 0 0 1px rgba(240, 208, 128, 0.15);
+  backdrop-filter: blur(6px);
+  animation: cardRise 0.65s ease both;
+}
+
+.disclaimer-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  color: #f0d080;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: rgba(201, 168, 76, 0.09);
+  margin-bottom: 16px;
+}
+
+.disclaimer-heading {
+  margin: 0 0 14px;
+  color: #f9efcc;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.disclaimer-body {
+  margin: 0;
+  color: rgba(245, 245, 240, 0.82);
+  font-size: 16px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.disclaimer-check {
+  margin-top: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #f7e4a8;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.disclaimer-check input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: #c9a84c;
+  cursor: pointer;
+}
+
+.disclaimer-helper {
+  margin: 12px 0 0;
+  color: rgba(240, 208, 128, 0.8);
+  font-size: 13px;
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .disclaimer-page {
+    padding: 28px 14px;
+  }
+
+  .disclaimer-card {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .disclaimer-body {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .disclaimer-check {
+    font-size: 14px;
+  }
+}
