@@ -37,7 +37,7 @@ CIVIL_DB_PATH = os.getenv("CIVIL_DB_PATH", str(BASE_DIR / "civil_law_db"))
 CIVIL_COLLECTION_NAME = os.getenv("CIVIL_COLLECTION_NAME", "civil_laws")
 SBERT_MODEL_NAME = os.getenv("SBERT_MODEL_NAME", "snunlp/KR-SBERT-V40K-klueNLI-augSTS")
 CROSS_ENCODER_MODEL_NAME = os.getenv("CROSS_ENCODER_MODEL_NAME", "bongsoo/albert-small-kor-cross-encoder-v1")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBGilryLXKl5itWlnKN3wFlIgncEfoN7Z4")
+GEMINI_API_KEY = (os.getenv("GEMINI_KEY") or os.getenv("GEMINI_API_KEY") or "").strip()
 
 # 모델/DB 클라이언트 전역 캐싱
 _model_sbert = None
@@ -78,6 +78,8 @@ def get_civil_collection():
 def get_genai_client():
     global _genai_client
     if _genai_client is None:
+        if not GEMINI_API_KEY:
+            raise RuntimeError("GEMINI_API_KEY (or GEMINI_KEY) is required")
         _genai_client = genai.Client(api_key=GEMINI_API_KEY)
     return _genai_client
 
